@@ -1,0 +1,26 @@
+{
+  "name": "liza-alam-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio of Liza Alam — Full-Stack Developer (TypeScript, React, Python)",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "15.5.26",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.8.3"
+  }
+}

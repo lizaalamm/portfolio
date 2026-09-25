@@ -1,0 +1,40 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 380 >>
+stream
+BT /F2 20 Tf 72 762 Td (Liza Alam) Tj ET
+BT /F1 12 Tf 72 740 Td (Full-Stack Developer  |  TypeScript, React & Next.js, Python & FastAPI) Tj ET
+BT /F1 11 Tf 72 706 Td (This is a placeholder CV so the download button works.) Tj ET
+BT /F1 11 Tf 72 690 Td (Replace the file at public/resume.pdf with your real CV - no code changes needed.) Tj ET
+0.06 0.46 0.43 rg 72 668 m 523 668 l S
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000348 00000 n 
+0000000450 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+881
+%%EOF
