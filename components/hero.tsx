@@ -43,7 +43,7 @@ export default function Hero() {
               </span>
             </Reveal>
 
-            <h1 className="mt-7 text-[clamp(2.4rem,6.1vw,4.15rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-ink">
+            <h1 className="mt-7 text-[clamp(2.1rem,6.6vw,4.15rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-ink">
               {site.hero.headline.map((line, index) => (
                 <Reveal
                   as="span"

@@ -339,3 +339,45 @@ p {
     transform: none !important;
   }
 }
+
+/* ── Print ────────────────────────────────────────────────────────────────── */
+/* Printing or "Save as PDF" should yield the full content, not the collapsed
+   state: reveals are forced visible and every disclosure panel is expanded. */
+@media print {
+  body {
+    background: #fff;
+  }
+
+  header,
+  .progress-bar,
+  .marquee,
+  [aria-hidden="true"] {
+    display: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .disclosure {
+    grid-template-rows: 1fr !important;
+  }
+
+  .card,
+  article {
+    break-inside: avoid;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  section {
+    padding-block: 1.5rem !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #5d6166;
+  }
+}

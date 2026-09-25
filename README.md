@@ -103,6 +103,8 @@ Checked rather than assumed:
   disclosure, `inert` on the closed mobile sheet so nothing hidden is tabbable.
 - `prefers-reduced-motion` disables every transition, animation and the marquee.
 - Content stays visible with scripting disabled (`@media (scripting: none)`).
+- Printing / "Save as PDF" expands every collapsed panel, drops the nav, marquee and
+  decorative layers, and appends external link URLs.
 - Semantic structure: one `h1`, ordered `h2 → h3 → h4`, `ol` for the experience timeline, `dl` for
   stats and metadata, `figure`/`figcaption` for the code card.
 
