@@ -27,16 +27,39 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24 bg-dark text-paper">
-      <div className="shell py-24 md:py-32">
+    <section id="contact" className="relative scroll-mt-24 overflow-hidden bg-dark text-paper">
+      {/* Depth for the closing band: a teal and indigo wash over near black */}
+      <div
+        aria-hidden="true"
+        className="glow -top-24 left-[10%] h-[320px] w-[420px] opacity-25"
+        style={{ background: "#0f766e" }}
+      />
+      <div
+        aria-hidden="true"
+        className="glow bottom-[-80px] right-[6%] h-[300px] w-[380px] opacity-20"
+        style={{ background: "#4338ca" }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-soft/50 to-transparent"
+      />
+
+      <div className="shell relative py-20 md:py-28">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em] text-paper/60">
-                <span className="text-accent-soft">05</span>
-                <span className="h-px w-8 bg-paper/20" aria-hidden="true" />
-                Contact
-              </p>
+              <div className="flex items-center gap-4">
+                <span
+                  aria-hidden="true"
+                  className="font-display text-[2.6rem] italic leading-none tabular-nums text-accent-soft/30 md:text-[3.4rem]"
+                >
+                  06
+                </span>
+                <span className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em] text-paper/60">
+                  <span className="size-1.5 rounded-full bg-accent-soft" aria-hidden="true" />
+                  Contact
+                </span>
+              </div>
             </Reveal>
 
             <Reveal delay={70}>
@@ -50,7 +73,7 @@ export default function Contact() {
             <Reveal delay={140}>
               <p className="mt-6 max-w-[36rem] text-[16px] leading-[1.75] text-paper/60">
                 {site.availability}. If you need someone who can own a feature from the typed
-                interface down to the query layer — and explain every decision on the way — I&apos;d
+                interface down to the query layer, and explain every decision along the way, I would
                 like to hear from you.
               </p>
             </Reveal>
@@ -59,7 +82,7 @@ export default function Contact() {
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-paper px-5 py-3 text-[14px] font-medium text-ink transition-colors duration-300 hover:bg-accent-wash"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-paper px-5 py-3 text-[14px] font-medium text-ink transition-colors duration-300 hover:bg-accent-wash"
                 >
                   <IconMail size={16} />
                   Email me
@@ -105,7 +128,7 @@ export default function Contact() {
                     Looking for
                   </dt>
                   <dd className="text-right text-[14px] text-paper/85">
-                    Full-stack / AI engineering roles
+                    Full stack and AI engineering roles
                   </dd>
                 </div>
 
@@ -114,7 +137,7 @@ export default function Contact() {
                     Primary stack
                   </dt>
                   <dd className="text-right text-[14px] text-paper/85">
-                    TypeScript · React · Next.js · Python
+                    React, Next.js, TypeScript, Python
                   </dd>
                 </div>
 

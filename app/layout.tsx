@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from "next";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const description = `${site.name} — ${site.role}. ${site.tagline} Two completed remote internships, and two end-to-end platforms: NeuralHub (multi-agent healthcare RAG) and Cyron (AI-powered security operations centre).`;
+const description = `${site.name}, ${site.role}. ${site.tagline} Two completed remote internships, plus two end to end platforms: NeuralHub, a clinical workspace built on multiple AI agents, and Cyron, an AI driven security operations centre.`;
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} — ${site.role}`,
+    default: `${site.name} · ${site.role}`,
     template: `%s · ${site.name}`,
   },
   description,
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
   creator: site.name,
   openGraph: {
     type: "website",
-    title: `${site.name} — ${site.role}`,
+    title: `${site.name} · ${site.role}`,
     description,
     siteName: site.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.role}`,
+    title: `${site.name} · ${site.role}`,
     description,
   },
   robots: { index: true, follow: true },

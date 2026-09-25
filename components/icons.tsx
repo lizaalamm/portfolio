@@ -197,6 +197,13 @@ export const IconClose = (p: BaseProps) => (
   </Svg>
 );
 
+export const IconAward = (p: BaseProps) => (
+  <Svg {...p}>
+    <circle cx="12" cy="9.5" r="5.5" />
+    <path d="M8.6 14.2 7 22l5-3 5 3-1.6-7.8" />
+    <path d="m10.2 9.6 1.3 1.3 2.4-2.4" />
+  </Svg>
+);
 export const IconFlow = (p: BaseProps) => (
   <Svg {...p}>
     <rect x="3" y="3" width="6" height="6" rx="1.5" />

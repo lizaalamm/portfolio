@@ -1,31 +1,48 @@
 import type { ReactNode } from "react";
 import Reveal from "@/components/reveal";
+import { tone as toneStyle } from "@/components/tone";
 
 type Props = {
   /** Small mono label, e.g. "Selected work". */
   eyebrow: string;
   title: string;
   description?: string;
-  /** Two-digit section number shown before the eyebrow. */
+  /** Two digit section number, drawn as an oversized ghost numeral. */
   index?: string;
-  /** Optional right-hand column (a note, a link, a count). */
+  /** teal | indigo | amber, controls the numeral and the rule. */
+  tone?: string;
+  /** Optional right hand column (a note, a link, a count). */
   aside?: ReactNode;
 };
 
-export default function SectionHeading({ eyebrow, title, description, index, aside }: Props) {
+export default function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  index,
+  tone = "teal",
+  aside,
+}: Props) {
+  const t = toneStyle(tone);
+
   return (
     <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
       <div className="lg:col-span-8">
         <Reveal>
-          <p className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em] text-faint">
+          <div className="flex items-center gap-4">
             {index ? (
-              <>
-                <span className="text-accent">{index}</span>
-                <span className="h-px w-8 bg-line-2" aria-hidden="true" />
-              </>
+              <span
+                aria-hidden="true"
+                className={`font-display text-[2.6rem] italic leading-none tabular-nums md:text-[3.4rem] ${t.ghost}`}
+              >
+                {index}
+              </span>
             ) : null}
-            {eyebrow}
-          </p>
+            <span className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em] text-faint">
+              <span className={`size-1.5 rounded-full ${t.solid}`} aria-hidden="true" />
+              {eyebrow}
+            </span>
+          </div>
         </Reveal>
 
         <Reveal delay={70}>

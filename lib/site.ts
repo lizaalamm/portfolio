@@ -3,9 +3,10 @@
  *  SITE CONTENT — single source of truth
  * ─────────────────────────────────────────────────────────────────────────────
  *  Everything the page renders comes from this file. Update your details here
- *  and the whole site follows — no component edits required.
+ *  and the whole site follows, with no component edits required.
  *
- *  Anything wrapped in  /** TODO *\/  is a placeholder waiting on your input.
+ *  Fields flagged with a `TODO` comment are placeholders waiting on your input.
+ *  House style: no em dashes and no hyphens in user facing copy.
  */
 
 /**
@@ -20,153 +21,197 @@ export const asset = (path: string) =>
 export const site = {
   name: "Liza Alam",
   initials: "LA",
-  role: "Full-Stack Developer",
-  roleDetail: "TypeScript · React & Next.js · Python & FastAPI",
-  tagline: "Typed end to end — from the interface to the API that backs it.",
+  role: "Full Stack Developer",
+  roleDetail: "React, Next.js, TypeScript & Python",
+  tagline: "Typed end to end, from the interface to the API that backs it.",
   location: "Islamabad, Pakistan",
-  availability: "Open to full-stack & AI engineering roles — remote or on-site",
+  availability: "Open to full stack and AI engineering roles, remote or on site",
 
-  /** Contact — share your CV/details and these get filled in one pass. */
+  /** Contact. LinkedIn confirmed as linkedin.com/in/lizaalamm */
   contact: {
     email: "hello@lizaalam.dev", // TODO: replace with your real email
     phone: "", // TODO: e.g. "+92 3XX XXXXXXX" (leave empty to hide)
     github: "https://github.com/lizaalamm",
-    linkedin: "https://www.linkedin.com/in/lizaalamm/", // TODO: confirm your LinkedIn slug
+    linkedin: "https://www.linkedin.com/in/lizaalamm/",
     resume: asset("/resume.pdf"), // drop your CV at public/resume.pdf
     resumeLabel: "Download CV",
   },
 
   hero: {
     /**
-     * One entry per line — line breaks are intentional.
+     * One entry per line, the line breaks are intentional.
      * Wrap a word in backticks to render it in the accent serif italic.
      */
     headline: [
-      "I build full-stack products",
-      "in `TypeScript` — and ship",
-      "the systems behind them.",
+      "I build full stack products",
+      "with `React` and `Next.js`,",
+      "and ship the systems behind them.",
     ],
     intro:
-      "I work across the whole stack: Next.js and React on the client, FastAPI, PostgreSQL and vector databases behind it, wired together with strictly typed contracts. Two remote engineering internships completed, and two production-grade platforms shipped — a multi-agent healthcare system and an AI-driven security operations centre.",
+      "I work across the whole stack: React and Next.js on the client, TypeScript and Python services behind it, PostgreSQL, Redis and vector search underneath. Two remote internships completed and two platforms shipped end to end, a clinical workspace built on multiple AI agents and an AI driven security operations centre.",
     stats: [
-      { value: "2", label: "Remote internships completed" },
+      { value: "2", label: "Remote internships, completed" },
       { value: "2", label: "Platforms shipped end to end" },
-      { value: "20+", label: "Product modules delivered" },
-      { value: "3", label: "Languages: TypeScript, Python, SQL" },
+      { value: "2", label: "Google certifications" },
+      { value: "15+", label: "Modules delivered across both platforms" },
     ],
   },
 
   /**
-   * Experience — both internships were fully remote and are now complete.
-   * TODO: confirm company display names + swap the bullets for your real work.
+   * Static technology board that sits under the hero.
+   */
+  stackBoard: [
+    {
+      title: "Frontend",
+      icon: "layers",
+      tone: "teal",
+      items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Vite"],
+    },
+    {
+      title: "Backend",
+      icon: "server",
+      tone: "indigo",
+      items: ["Python", "FastAPI", "Node.js", "Prisma", "REST APIs", "Clerk and JWT auth"],
+    },
+    {
+      title: "Data",
+      icon: "database",
+      tone: "amber",
+      items: ["PostgreSQL", "Qdrant", "Redis", "Elasticsearch", "Cloudinary", "Neon"],
+    },
+    {
+      title: "AI and Security",
+      icon: "sparkles",
+      tone: "teal",
+      items: ["LangChain", "RAG pipelines", "Cohere and OpenAI", "Scikit Learn", "Isolation Forest and LSTM", "MITRE ATT&CK"],
+    },
+  ],
+
+  /**
+   * Experience: both internships were fully remote, three months each,
+   * and both are complete.
    */
   experience: [
     {
       company: "CarbonRepro",
-      role: "Full-Stack Developer Intern",
+      monogram: "CR",
+      tone: "teal",
+      role: "Full Stack Developer Intern",
       mode: "Remote",
       duration: "3 months",
       period: "Completed",
       summary:
-        "Shipped production web platform features for a US-based digital agency that builds web apps, e-commerce and AI automation for clients across the USA.",
+        "Shipped production web platform features for a United States digital agency that builds web apps, ecommerce and AI automation for clients across the country.",
       highlights: [
-        "Built and shipped customer-facing web platform features with React, Next.js and TypeScript, from component to deployment.",
-        "Integrated REST APIs and third-party services, adding typed client contracts so request/response shapes were validated at compile time.",
-        "Worked inside a distributed, multi-timezone team with async standups, pull-request review and scoped feature branches.",
-        "Contributed to performance and accessibility passes — tightening Core Web Vitals and keyboard/screen-reader behaviour on key flows.",
+        "Built and shipped customer facing platform features with React, Next.js and TypeScript, from component to deployment.",
+        "Integrated REST APIs and third party services, adding typed client contracts so request and response shapes were validated at compile time.",
+        "Worked inside a distributed, multi timezone team using async standups, pull request review and scoped feature branches.",
+        "Contributed to performance and accessibility passes, tightening Core Web Vitals and keyboard behaviour on key flows.",
       ],
-      stack: ["TypeScript", "React", "Next.js", "Tailwind CSS", "REST APIs", "Git & PR workflow"],
+      stack: ["TypeScript", "React", "Next.js", "Tailwind CSS", "REST APIs", "Git and PR workflow"],
     },
     {
       company: "U Devs",
+      monogram: "UD",
+      tone: "indigo",
       role: "Software Engineering Intern",
       mode: "Remote",
       duration: "3 months",
       period: "Completed",
       summary:
-        "Worked on custom software and AI-assisted platforms — building business application features and the API layers underneath them.",
+        "Worked on custom software and AI assisted platforms, building business application features and the API layers underneath them.",
       highlights: [
-        "Developed business application modules (dashboards, data flows, role-aware views) with React and TypeScript on the front end.",
+        "Developed business application modules such as dashboards, data flows and role aware views with React and TypeScript.",
         "Contributed API endpoints and data models in Python, keeping validation schemas explicit at every boundary.",
-        "Implemented authentication and role-based access flows so permissions were enforced consistently across the UI.",
-        "Participated in code reviews and release cycles, shipping incrementally on feature branches with clear pull-request descriptions.",
+        "Implemented authentication and role based access flows so permissions were enforced consistently across the UI.",
+        "Participated in code reviews and release cycles, shipping incrementally on feature branches with clear pull request descriptions.",
       ],
       stack: ["React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "REST APIs", "Git"],
     },
   ],
 
-  /**
-   * Smaller, supporting builds — real artifacts from the two projects above.
-   */
-  supporting: [
+  /** Google certificates. */
+  certifications: [
     {
-      name: "Doctor portal — local P0 stack",
-      context: "NeuralHub",
-      body: "An isolated, production-free review stack: a single compose file brings up PostgreSQL, Redis and the doctor-only backend with explicit demo-data gates and background jobs switched off, so reviewers can exercise the portal from a clean clone.",
-      stack: ["Docker Compose", "FastAPI", "PostgreSQL", "Redis", "Next.js"],
+      name: "Build Dynamic User Interfaces (UI) for Websites",
+      issuer: "Google",
+      monogram: "G",
+      issued: "July 2026",
+      focus: "UI and UX",
+      summary:
+        "Interface design and front end delivery for the web: layout systems, responsive behaviour and accessibility aware interface patterns.",
+      skills: ["Web interfaces", "Responsive layout", "Accessibility"],
     },
     {
-      name: "Region-aware threat-intelligence ingestion",
-      context: "Cyron",
-      body: "One-time import scripts that load URLhaus, AbuseIPDB, MalwareBazaar, FeodoTracker, OpenPhish and ThreatFox feeds, plus Pakistan-specific fraud and APT profiles, into PostgreSQL — persisted in the database volume and re-runnable on a fresh machine.",
-      stack: ["Python", "Pandas", "PostgreSQL", "REST APIs", "MITRE ATT&CK"],
+      name: "Foundations of Project Management",
+      issuer: "Google",
+      monogram: "G",
+      issued: "July 2026",
+      focus: "Project Management",
+      summary:
+        "Project lifecycle fundamentals: scoping, scheduling, stakeholder communication and delivery tracking from kickoff to handover.",
+      skills: ["Scoping", "Scheduling", "Stakeholder comms"],
     },
   ],
 
-  /** Flagship projects — the deepest proof of work on the page. */
+  /** Flagship projects, the deepest proof of work on the page. */
   projects: [
     {
       id: "neuralhub",
       name: "NeuralHub",
-      kicker: "Enterprise multi-agent healthcare platform",
+      tone: "teal",
+      kicker: "Healthcare platform built on multiple AI agents",
       summary:
-        "A high-contrast, multi-agent clinical workspace for medical professionals: secure per-patient environments, robust validation schemas, and real-time retrieval across distributed knowledge indices. The client never touches the database — every read and write flows through verified API controllers.",
-      role: "Full-Stack Engineer — API layer, agent workspace & RAG pipeline",
+        "A high contrast clinical workspace for medical professionals: secure patient environments, explicit validation schemas and retrieval across distributed knowledge indices. The client never touches the database. Every read and write flows through verified API controllers.",
+      role: "Full Stack Engineer, API layer, agent workspace and retrieval pipeline",
       metrics: [
         { value: "5", label: "Specialised agents" },
-        { value: "3-layer", label: "Route → controller → service" },
-        { value: "Sub-second", label: "Vector retrieval target" },
+        { value: "3", label: "Layers: route, controller, service" },
+        { value: "<1s", label: "Vector retrieval target" },
       ],
+      flow: ["Upload", "Cloudinary", "Prisma", "FastAPI", "Qdrant"],
+      flowLabel: "Document ingestion, from upload to vector index",
       highlights: [
-        "Architected a strict three-layer split (routes → controllers → services) in FastAPI so no loose connections, raw schema queries or external vector evaluation loops can escape the API layer.",
-        "Built the document ingestion pipeline: authenticated multipart upload → Cloudinary stream sync → Prisma audit record → LangChain chunk parsing in an async worker → Cohere embeddings → Qdrant multi-tenant vector index.",
-        "Modelled patients, files, audit records and deterministic meta-logs in PostgreSQL (Neon) with Prisma ORM, including checked migrations.",
-        "Owned the agent workspace in the Next.js App Router — per-agent feature folders for hooks, reusable modules and modals, shared UI components in a single design system.",
-        "Registered every agent router through one mounting entrypoint so route ownership stays explicit and reviewable.",
+        "Architected a strict three layer split in FastAPI (routes, controllers, services) so no loose connections, raw schema queries or external vector evaluation loops can escape the API layer.",
+        "Built the document ingestion pipeline: authenticated multipart upload to Cloudinary, a Prisma audit record, LangChain chunk parsing in an async worker, Cohere embeddings, then a multi tenant vector index in Qdrant.",
+        "Modelled patients, clinical files, audit records and deterministic meta logs in PostgreSQL (Neon) with Prisma ORM, including checked migrations.",
+        "Owned the agent workspace in the Next.js App Router: per agent feature folders for hooks, reusable modules and modals, with shared UI components in one design system.",
+        "Registered every agent router through a single mounting entry point so route ownership stays explicit and reviewable.",
       ],
       architecture: [
         {
-          label: "Ingestion pipeline (RAG)",
+          label: "Ingestion pipeline",
           items: [
-            "Client streams clinical documents as authenticated multipart form-data.",
-            "Media service pushes the byte stream to Cloudinary and returns a secure URL + asset metadata.",
+            "The client streams clinical documents as authenticated multipart form data.",
+            "The media service pushes the byte stream to Cloudinary and returns a secure URL with asset metadata.",
             "Prisma writes the file row to PostgreSQL, mapped to the owning patient profile.",
-            "Async worker parses text with LangChain loaders and splits it into overlapping token windows.",
-            "Cohere embeddings convert chunks to float arrays pushed to Qdrant alongside parent record keys.",
+            "An async worker parses text with LangChain loaders and splits it into overlapping token windows.",
+            "Cohere embeddings convert chunks to float arrays and push them to Qdrant beside their parent record keys.",
           ],
         },
         {
           label: "Agents in the workspace",
           items: [
-            "Medical RAG — retrieval-grounded clinical question answering over per-agent vector collections.",
-            "Therapy agent — multi-turn reasoning with prompt-state tracking and chunk graphs.",
-            "DDx agent — differential diagnosis exploration over structured findings.",
-            "Medication adherence — adherence analytics and patient timelines.",
-            "AI back-office admin — operational tooling with human-in-the-loop review modals.",
+            "Medical RAG: retrieval grounded clinical question answering over per agent vector collections.",
+            "Therapy agent: multi turn reasoning with prompt state tracking and chunk graphs.",
+            "DDx agent: differential diagnosis exploration over structured findings.",
+            "Medication adherence: adherence analytics and patient timelines.",
+            "AI back office admin: operational tooling with human in the loop review modals.",
           ],
         },
         {
           label: "Frontend conventions",
           items: [
-            "hooks/ encapsulate data fetching, state and side effects per feature (usePatientCard, useAdherenceAnalytics).",
-            "modules/ hold self-contained UI units that compose whole pages (Dashboard, Patient, HITL).",
+            "hooks/ encapsulate data fetching, state and side effects per feature, such as usePatientCard and useAdherenceAnalytics.",
+            "modules/ hold self contained UI units that compose whole pages: dashboard, patient and human in the loop flows.",
             "modals/ keep overlay forms, confirmations and detail views scoped to the feature that owns them.",
-            "constants/, lib/ and utils/ stay agent-scoped, so a new agent can be added without touching shared code.",
+            "constants/, lib/ and utils/ stay scoped to their agent, so a new agent can be added without touching shared code.",
           ],
         },
       ],
       stack: [
         "Next.js (App Router)",
+        "React",
         "TypeScript",
         "Tailwind CSS",
         "Shadcn UI",
@@ -186,52 +231,55 @@ export const site = {
     {
       id: "cyron",
       name: "Cyron",
-      kicker: "Context-aware intelligent SOC with automated threat response",
+      tone: "indigo",
+      kicker: "Intelligent security operations centre with automated response",
       summary:
-        "A desktop cybersecurity platform built for Pakistani SMBs — the organisations attacked daily but priced out of enterprise tooling. Cyron delivers behavioural detection, explainable risk scoring and automated incident response on an entirely open-source stack, at zero software cost.",
-      role: "Project Lead & Full-Stack Engineer — detection pipeline, response engine & desktop client",
+        "A desktop cybersecurity platform built for Pakistani small and medium businesses, the organisations attacked daily but priced out of enterprise tooling. Cyron delivers behavioural detection, explainable risk scoring and automated incident response on open source foundations, at zero software cost.",
+      role: "Project Lead and Full Stack Engineer, detection pipeline, response engine and desktop client",
       metrics: [
-        { value: "10", label: "Threat-ownership modules" },
-        { value: "<30s", label: "Log to response" },
-        { value: "5-factor", label: "Explainable risk score" },
+        { value: "10", label: "Threat ownership modules" },
+        { value: "30s", label: "From log to response" },
+        { value: "Five", label: "Risk factors, fully explained" },
       ],
+      flow: ["Ingest", "Baseline", "ML detection", "IOC match", "Risk score", "Response"],
+      flowLabel: "Detection path, from raw log to automated response",
       highlights: [
-        "Designed ten threat-ownership modules, each mapped to a single detection, scoring or response responsibility — identity & access, insider threat/UBA, network intrusion, threat intel correlation, risk prioritisation, automated response, compliance, SOC dashboard, reports, settings.",
-        "Implemented 30-day behavioural baselines per user with Isolation Forest and LSTM anomaly detection to surface port scanning, beaconing and C2 activity.",
-        "Built the five-factor risk engine (Time, Location, Behaviour, Peer Comparison, Threat Intelligence) so every alert carries an auditable, human-readable reason instead of an opaque score.",
-        "Shipped automated response that runs in under 30 seconds — IP blocking, endpoint isolation and forced re-authentication — with rollback support for safe reversal.",
-        "Curated Pakistan-specific threat intelligence (JazzCash/Easypaisa fraud patterns, fake NADRA portals, APT36/Transparent Tribe, SideCopy) alongside URLhaus, AbuseIPDB, MalwareBazaar, FeodoTracker, OpenPhish and ThreatFox feeds mapped to MITRE ATT&CK.",
-        "Delivered PCI DSS v4.0 compliance monitoring with continuous control checks and audit-ready reporting, plus Admin/Analyst role separation across the dashboard.",
-        "Engineered offline-first behaviour: core monitoring keeps running through internet outages and load shedding.",
+        "Designed ten threat ownership modules, each mapped to one detection, scoring or response responsibility: identity and access, insider threat, network intrusion, threat intel correlation, risk prioritisation, automated response, compliance, SOC dashboard, reports and settings.",
+        "Implemented 30 day behavioural baselines per user with Isolation Forest and LSTM anomaly detection to surface port scanning, beaconing and command and control activity.",
+        "Built the five factor risk engine (time, location, behaviour, peer comparison, threat intelligence) so every alert carries an auditable reason instead of an opaque score.",
+        "Shipped automated response that runs in under 30 seconds: IP blocking, endpoint isolation and forced re authentication, with rollback support for safe reversal.",
+        "Curated Pakistan specific threat intelligence (JazzCash and Easypaisa fraud patterns, fake NADRA portals, APT36 and SideCopy) alongside URLhaus, AbuseIPDB, MalwareBazaar, FeodoTracker, OpenPhish and ThreatFox feeds mapped to MITRE ATT&CK.",
+        "Delivered PCI DSS v4.0 compliance monitoring with continuous control checks and audit ready reporting, plus admin and analyst role separation across the dashboard.",
+        "Engineered offline first behaviour: core monitoring keeps running through internet outages and load shedding.",
       ],
       architecture: [
         {
-          label: "Detection & response path",
+          label: "Detection and response path",
           items: [
-            "ELK stack ingests and normalises endpoint, identity and network logs.",
-            "Per-user behavioural baselines (30 days) flag off-hours access and data-exfiltration patterns.",
-            "Isolation Forest + LSTM models score network anomalies and feed the correlation layer.",
-            "IOC repository matches IPs, domains and hashes against regional APT and fraud signatures.",
+            "The ELK stack ingests and normalises endpoint, identity and network logs.",
+            "Per user behavioural baselines span 30 days and flag off hours access and data exfiltration patterns.",
+            "Isolation Forest and LSTM models score network anomalies and feed the correlation layer.",
+            "The IOC repository matches IPs, domains and hashes against regional APT and fraud signatures.",
             "The decision module weights five risk factors, labels severity and hands off to automated response.",
-            "Response executes blocking, isolation or forced re-auth, writes an audit trail and supports rollback.",
+            "Response executes blocking, isolation or forced re authentication, writes an audit trail and supports rollback.",
           ],
         },
         {
-          label: "Platform & access",
+          label: "Platform and access",
           items: [
-            "Electron wraps the same React front end in a native desktop window — one codebase, no fork.",
-            "FastAPI backend exposes module routers for every threat domain, with interactive /docs.",
-            "PostgreSQL via Docker for storage, Redis for caching and real-time processing.",
-            "JWT issuance with bcrypt-hashed passwords and optional Google OAuth 2.0 sign-in.",
-            "Role-based access for Admin and Analyst, enforced through protected routes and role-filtered modules.",
+            "Electron wraps the same React front end in a native desktop window, so there is one codebase and no fork.",
+            "The FastAPI backend exposes module routers for every threat domain, with interactive /docs.",
+            "PostgreSQL in Docker for storage, Redis for caching and real time processing.",
+            "JWT issuance with bcrypt hashed passwords and optional Google OAuth 2.0 sign in.",
+            "Role based access for admin and analyst, enforced through protected routes and role filtered modules.",
           ],
         },
         {
-          label: "Compliance & reporting",
+          label: "Compliance and reporting",
           items: [
             "PCI DSS v4.0 requirement mapping with automated gap analysis.",
-            "Daily and weekly summaries, top-risky-user reporting and PDF export.",
-            "Configurable risk thresholds, IP/user whitelisting, offline-mode toggle and notification preferences.",
+            "Daily and weekly summaries, top risk user reporting and PDF export.",
+            "Configurable risk thresholds, IP and user whitelisting, an offline mode toggle and notification preferences.",
           ],
         },
       ],
@@ -247,8 +295,8 @@ export const site = {
         "Elasticsearch",
         "Logstash",
         "Kibana",
-        "scikit-learn",
-        "TensorFlow / Keras",
+        "Scikit Learn",
+        "TensorFlow and Keras",
         "Pandas",
         "NumPy",
         "JWT",
@@ -259,126 +307,139 @@ export const site = {
     },
   ],
 
-  /** Skill groups — ordered so the strongest signals read first. */
+  /** Skill groups, ordered so the strongest signals read first. */
   skills: [
     {
       title: "Languages",
       icon: "code",
-      items: ["TypeScript", "JavaScript (ES2023)", "Python", "SQL", "HTML5 & CSS3"],
+      tone: "teal",
+      span: "lg:col-span-3",
+      items: ["TypeScript", "JavaScript (ES2023)", "Python", "SQL", "HTML5 and CSS3"],
     },
     {
       title: "Frontend",
       icon: "layers",
+      tone: "teal",
+      span: "lg:col-span-5",
       items: [
         "React",
         "Next.js (App Router, SSR)",
         "Tailwind CSS",
         "Shadcn UI",
-        "Responsive & accessible UI",
+        "Responsive and accessible UI",
         "Design systems",
         "Vite",
       ],
     },
     {
-      title: "Backend & APIs",
+      title: "Backend and APIs",
       icon: "server",
+      tone: "indigo",
+      span: "lg:col-span-4",
       items: [
         "FastAPI",
         "Node.js",
         "REST API design",
         "Prisma ORM",
         "Pydantic validation",
-        "Async workers & background jobs",
+        "Async workers and background jobs",
         "Auth flows (Clerk, JWT, OAuth 2.0)",
       ],
     },
     {
-      title: "Data & Retrieval",
+      title: "Data and Retrieval",
       icon: "database",
+      tone: "amber",
+      span: "lg:col-span-4",
       items: [
         "PostgreSQL",
         "Prisma migrations",
         "Qdrant vector search",
         "Redis",
-        "Elasticsearch / ELK",
-        "Schema design & normalisation",
+        "Elasticsearch and ELK",
+        "Schema design",
       ],
     },
     {
-      title: "AI & Agents",
+      title: "AI and Agents",
       icon: "sparkles",
+      tone: "teal",
+      span: "lg:col-span-4",
       items: [
         "LangChain",
         "RAG pipelines",
         "Agent orchestration",
-        "Cohere & OpenAI APIs",
-        "Prompt-state tracking",
-        "scikit-learn",
-        "TensorFlow / Keras",
+        "Cohere and OpenAI APIs",
+        "Prompt state tracking",
+        "Scikit Learn",
+        "TensorFlow and Keras",
       ],
     },
     {
-      title: "Security & Compliance",
+      title: "Security and Compliance",
       icon: "shield",
+      tone: "indigo",
+      span: "lg:col-span-4",
       items: [
-        "Role-based access control",
-        "JWT & bcrypt",
+        "Role based access control",
+        "JWT and bcrypt",
         "Google OAuth 2.0",
-        "Threat intelligence & IOC matching",
+        "Threat intelligence and IOC matching",
         "MITRE ATT&CK mapping",
         "PCI DSS v4.0 controls",
       ],
     },
     {
-      title: "Platform & Tooling",
+      title: "Platform and Tooling",
       icon: "terminal",
+      tone: "amber",
+      span: "lg:col-span-12",
       items: [
-        "Docker & Compose",
-        "Git & GitHub flow",
-        "Feature branches & PR review",
+        "Docker and Compose",
+        "Git and GitHub flow",
+        "Feature branches and PR review",
         "Neon",
         "Cloudinary",
-        "Linux & PowerShell",
+        "Linux and PowerShell",
       ],
     },
-  ],
-
-  /** Marquee strip under the hero. Keep it short — it is a rhythm, not a list. */
-  marquee: [
-    "TypeScript",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Python",
-    "FastAPI",
-    "PostgreSQL",
-    "Prisma",
-    "Qdrant",
-    "LangChain",
-    "Redis",
-    "Docker",
-    "Electron",
-    "scikit-learn",
   ],
 
   about: {
     heading: "Engineering that holds up under review",
     paragraphs: [
-      "I care about architecture that stays readable six months later. In practice that means typed contracts at every boundary, layered separation of concerns (routes → controllers → services), and folders that tell you where something belongs before you open it.",
-      "My work sits where product engineering meets applied AI: multi-agent systems, retrieval pipelines over vector stores, and behavioural detection models — wrapped in interfaces that stay fast, accessible and genuinely pleasant to use.",
-      "Both of my internships were fully remote and are now complete, which is where I learned to work asynchronously: scoped feature branches, pull requests with real descriptions, and reviews that treat the diff as the unit of communication.",
+      "I care about architecture that stays readable six months later. That means typed contracts at every boundary, layered separation of concerns (routes, controllers, services) and folders that tell you where something belongs before you open it.",
+      "My work sits where product engineering meets applied AI: agent systems that reason over retrieved context, retrieval pipelines over vector stores and behavioural detection models, all wrapped in interfaces that stay fast, accessible and genuinely pleasant to use.",
+      "Both internships were fully remote, which taught me to work asynchronously: scoped feature branches, pull requests with real descriptions and reviews that treat the diff as the unit of communication.",
     ],
     principles: [
-      { title: "Typed end to end", body: "TypeScript on the client, Pydantic and Prisma on the server — the contract is verified at compile time, not discovered in production." },
-      { title: "Layered by default", body: "UI talks to controllers, controllers own logic. No component reaches into the database, no route bypasses the service layer." },
-      { title: "Explainable systems", body: "Models and scoring engines should justify their output — every alert, match and recommendation carries a reason you can audit." },
-      { title: "Performance is a feature", body: "Fast first paint, sub-second retrieval, and interfaces that stay responsive on modest hardware." },
+      {
+        title: "Typed end to end",
+        tone: "teal",
+        body: "TypeScript on the client, Pydantic and Prisma on the server. The contract is verified at compile time, not discovered in production.",
+      },
+      {
+        title: "Layered by default",
+        tone: "indigo",
+        body: "The UI talks to controllers, controllers own the logic. No component reaches into the database and no route bypasses the service layer.",
+      },
+      {
+        title: "Explainable systems",
+        tone: "amber",
+        body: "Models and scoring engines should justify their output. Every alert, match and recommendation carries a reason you can audit.",
+      },
+      {
+        title: "Performance is a feature",
+        tone: "teal",
+        body: "Fast first paint, sub second retrieval and interfaces that stay responsive on modest hardware.",
+      },
     ],
   },
 
   nav: [
     { href: "#work", label: "Work" },
     { href: "#experience", label: "Experience" },
+    { href: "#certifications", label: "Certifications" },
     { href: "#skills", label: "Skills" },
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
@@ -389,3 +450,5 @@ export type Site = typeof site;
 export type Project = (typeof site.projects)[number];
 export type Experience = (typeof site.experience)[number];
 export type SkillGroup = (typeof site.skills)[number];
+export type Certification = (typeof site.certifications)[number];
+export type StackGroup = (typeof site.stackBoard)[number];

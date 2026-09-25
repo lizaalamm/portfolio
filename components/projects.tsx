@@ -4,6 +4,8 @@ import { useState } from "react";
 import { site } from "@/lib/site";
 import Reveal from "@/components/reveal";
 import SectionHeading from "@/components/section-heading";
+import Flow from "@/components/flow";
+import { tone as toneStyle } from "@/components/tone";
 import { IconChevron, IconFlow } from "@/components/icons";
 
 type Project = (typeof site.projects)[number];
@@ -11,19 +13,29 @@ type Project = (typeof site.projects)[number];
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [open, setOpen] = useState(index === 0);
   const panelId = `${project.id}-architecture`;
+  const t = toneStyle(project.tone);
 
   return (
     <Reveal delay={index * 90}>
-      <article className="card overflow-hidden">
-        {/* ── Card head ───────────────────────────────────────────────── */}
+      <article className="card relative overflow-hidden">
+        {/* Tone wash in the corner, plus an identity bar down the left edge */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-16 -top-16 size-56 rounded-full opacity-[0.13] blur-[70px]"
+          style={{ background: t.hex }}
+        />
+        <span aria-hidden="true" className={`absolute inset-y-0 left-0 w-[3px] ${t.solid}`} />
+
         <div className="grid gap-8 p-7 md:p-9 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-8">
-            <div className="flex items-center gap-4">
-              <span className="font-mono text-[12px] tabular-nums text-faint">
+            <div className="flex flex-wrap items-center gap-4">
+              <span className={`font-mono text-[12px] tabular-nums ${t.mark}`}>
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="h-px w-6 bg-line-2" aria-hidden="true" />
-              <span className="font-mono text-[11.5px] uppercase tracking-[0.14em] text-accent-2">
+              <span className={`h-px w-6 ${t.solid}`} aria-hidden="true" />
+              <span
+                className={`font-mono text-[11.5px] uppercase tracking-[0.14em] ${t.text}`}
+              >
                 {project.kicker}
               </span>
             </div>
@@ -37,19 +49,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </p>
 
             <p className="mt-6 flex flex-wrap items-center gap-2 text-[13px] text-ink-2">
-              <IconFlow size={16} className="text-accent" />
+              <IconFlow size={16} className={t.mark} />
               <span className="font-medium">Role</span>
               <span className="text-faint">·</span>
               <span className="text-muted">{project.role}</span>
             </p>
 
+            <div className="mt-7">
+              <Flow label={project.flowLabel} nodes={project.flow} tone={project.tone} />
+            </div>
+
             <ul className="mt-8 space-y-3.5">
               {project.highlights.map((item) => (
-                <li key={item} className="flex gap-3.5 text-[14.5px] leading-[1.7] text-ink-2">
-                  <span
-                    aria-hidden="true"
-                    className="mt-[0.62em] h-px w-3.5 shrink-0 bg-accent"
-                  />
+                <li key={item} className="flex gap-3.5 text-[14.5px] leading-[1.7]">
+                  <span aria-hidden="true" className={`mt-[0.62em] h-px w-3.5 shrink-0 ${t.solid}`} />
                   <span className="text-muted">{item}</span>
                 </li>
               ))}
@@ -64,7 +77,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                   <dt className="text-[11.5px] uppercase tracking-[0.12em] text-faint">
                     {metric.label}
                   </dt>
-                  <dd className="mt-1.5 text-[21px] font-semibold leading-none tracking-[-0.02em] text-ink">
+                  <dd
+                    className={`mt-1.5 text-[21px] font-semibold leading-none tracking-[-0.02em] ${t.text}`}
+                  >
                     {metric.value}
                   </dd>
                 </div>
@@ -73,7 +88,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
         </div>
 
-        {/* ── Expandable architecture + stack ─────────────────────────── */}
+        {/* ── Expandable architecture and stack ───────────────────────── */}
         <div className="border-t border-line">
           <button
             type="button"
@@ -83,14 +98,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             className="group flex w-full items-center justify-between gap-4 px-7 py-4 text-left transition-colors hover:bg-paper-2/50 md:px-9"
           >
             <span className="font-mono text-[11.5px] uppercase tracking-[0.16em] text-ink-2">
-              Architecture &amp; data flow
+              Architecture and data flow
             </span>
             <span className="flex items-center gap-2 text-[12.5px] text-muted">
               {open ? "Collapse" : "Expand"}
               <IconChevron
                 size={16}
                 className={[
-                  "text-accent transition-transform duration-500",
+                  "transition-transform duration-500",
+                  t.mark,
                   open ? "rotate-180" : "",
                 ].join(" ")}
               />
@@ -105,13 +121,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     <h4 className="text-[14px] font-semibold text-ink">{group.label}</h4>
                     <ul className="mt-4 space-y-3">
                       {group.items.map((item) => (
-                        <li
-                          key={item}
-                          className="flex gap-3 text-[13.5px] leading-[1.65] text-muted"
-                        >
+                        <li key={item} className="flex gap-3 text-[13.5px] leading-[1.65] text-muted">
                           <span
                             aria-hidden="true"
-                            className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-line-2"
+                            className={`mt-[0.55em] size-1.5 shrink-0 rounded-full ${t.solid} opacity-50`}
                           />
                           <span>{item}</span>
                         </li>
@@ -143,18 +156,23 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export default function Projects() {
   return (
-    <section id="work" className="scroll-mt-24 py-24 md:py-32">
+    <section id="work" className="scroll-mt-24 py-20 md:py-28">
       <div className="shell">
         <SectionHeading
           index="01"
           eyebrow="Selected work"
-          title="Two systems, built end to end."
-          description="Both projects run from interface to infrastructure: typed clients, layered APIs, real data models, and the retrieval or detection logic that makes them useful. Expand either card for the architecture."
+          title="Two platforms, built end to end."
+          description="Both projects run from interface to infrastructure: typed clients, layered APIs, real data models and the retrieval or detection logic that makes them useful. Expand either card for the full architecture."
+          tone="teal"
           aside={
             <p className="font-mono text-[12px] leading-relaxed text-faint">
-              <span className="text-ink-2">Healthcare · Agentic RAG</span>
+              <span className="text-accent-2">Healthcare</span>
+              <span className="text-line-2"> · </span>
+              <span className="text-ink-2">Multiple AI agents</span>
               <br />
-              <span className="text-ink-2">Cybersecurity · Detection &amp; response</span>
+              <span className="text-indigo-deep">Cybersecurity</span>
+              <span className="text-line-2"> · </span>
+              <span className="text-ink-2">Detection and response</span>
             </p>
           }
         />
@@ -163,43 +181,6 @@ export default function Projects() {
           {site.projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </div>
-
-        {/* ── Supporting builds ────────────────────────────────────────── */}
-        <div className="mt-16">
-          <Reveal>
-            <p className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em] text-faint">
-              <span className="h-px w-8 bg-line-2" aria-hidden="true" />
-              Supporting builds
-            </p>
-          </Reveal>
-
-          <div className="mt-7 grid gap-4 md:grid-cols-2">
-            {site.supporting.map((item, index) => (
-              <Reveal key={item.name} delay={index * 90}>
-                <article className="card relative h-full overflow-hidden p-6 pl-7">
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-y-6 left-0 w-[3px] rounded-r-full bg-accent/70"
-                  />
-                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
-                    {item.context}
-                  </p>
-                  <h3 className="mt-3 text-[17.5px] font-semibold leading-snug tracking-[-0.02em] text-ink">
-                    {item.name}
-                  </h3>
-                  <p className="mt-3 text-[14px] leading-[1.7] text-muted">{item.body}</p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {item.stack.map((tech) => (
-                      <li key={tech}>
-                        <span className="chip font-mono text-[11.5px]">{tech}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </div>
     </section>

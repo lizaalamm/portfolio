@@ -94,7 +94,7 @@ export default function Nav() {
             </span>
           </a>
 
-          <ul className="hidden items-center gap-8 md:flex">
+       <ul className="hidden items-center gap-6 md:flex lg:gap-7">
             {site.nav.map((item) => {
               const isActive = active === item.href.replace("#", "");
               return (
@@ -149,7 +149,7 @@ export default function Nav() {
             ? "visible pointer-events-auto opacity-100"
             : "invisible pointer-events-none opacity-0",
         ].join(" ")}
-        aria-hidden={!open}
+           aria-hidden={!open}
         inert={!open}
       >
         <div className="shell flex h-[68px] items-center justify-between">
