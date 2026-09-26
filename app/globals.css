@@ -166,13 +166,7 @@ p {
   filter: blur(60px);
 }
 
-/* Small connector arrow between pipeline steps. */
-.flow-arrow::after {
-  content: "→";
-  color: var(--color-line-2);
-  font-size: 0.9rem;
-  line-height: 1;
-}
+
 
 .hairline {
   height: 1px;

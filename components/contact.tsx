@@ -48,17 +48,10 @@ export default function Contact() {
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="flex items-center gap-4">
-                <span
-                  aria-hidden="true"
-                  className="font-display text-[2.6rem] italic leading-none tabular-nums text-accent-soft/30 md:text-[3.4rem]"
-                >
-                  06
-                </span>
-                <span className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em] text-paper/60">
-                  <span className="size-1.5 rounded-full bg-accent-soft" aria-hidden="true" />
-                  Contact
-                </span>
+                           <div className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em]">
+                <span className="tabular-nums text-paper/40">06</span>
+                <span className="h-px w-7 bg-paper/25" aria-hidden="true" />
+                <span className="text-accent-soft">Contact</span>
               </div>
             </Reveal>
 

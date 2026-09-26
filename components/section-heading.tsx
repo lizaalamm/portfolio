@@ -7,9 +7,9 @@ type Props = {
   eyebrow: string;
   title: string;
   description?: string;
-  /** Two digit section number, drawn as an oversized ghost numeral. */
+  /** Section number, drawn small and quiet in front of the label. */
   index?: string;
-  /** teal | indigo | amber, controls the numeral and the rule. */
+  /** teal | indigo | amber, tints the label. */
   tone?: string;
   /** Optional right hand column (a note, a link, a count). */
   aside?: ReactNode;
@@ -29,19 +29,12 @@ export default function SectionHeading({
     <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
       <div className="lg:col-span-8">
         <Reveal>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em]">
             {index ? (
-              <span
-                aria-hidden="true"
-                className={`font-display text-[2.6rem] italic leading-none tabular-nums md:text-[3.4rem] ${t.ghost}`}
-              >
-                {index}
-              </span>
+              <span className="tabular-nums text-faint">{index}</span>
             ) : null}
-            <span className="flex items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.18em] text-faint">
-              <span className={`size-1.5 rounded-full ${t.solid}`} aria-hidden="true" />
-              {eyebrow}
-            </span>
+            <span className="h-px w-7 bg-line-2" aria-hidden="true" />
+            <span className={t.text}>{eyebrow}</span>
           </div>
         </Reveal>
 

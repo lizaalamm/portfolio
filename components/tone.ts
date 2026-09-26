@@ -18,8 +18,6 @@ export type ToneStyle = {
   border: string;
   /** Solid dot or bar. */
   solid: string;
-  /** Oversized ghost numerals. */
-  ghost: string;
 };
 
 export const tones: Record<Tone, ToneStyle> = {
@@ -30,7 +28,6 @@ export const tones: Record<Tone, ToneStyle> = {
     mark: "text-accent",
     border: "border-accent/30",
     solid: "bg-accent",
-    ghost: "text-accent/20",
   },
   indigo: {
     hex: "#4338ca",
@@ -39,7 +36,6 @@ export const tones: Record<Tone, ToneStyle> = {
     mark: "text-indigo",
     border: "border-indigo/30",
     solid: "bg-indigo",
-    ghost: "text-indigo/20",
   },
   amber: {
     hex: "#9a3412",
@@ -48,7 +44,6 @@ export const tones: Record<Tone, ToneStyle> = {
     mark: "text-amber",
     border: "border-amber/30",
     solid: "bg-amber",
-    ghost: "text-amber/20",
   },
 };
 

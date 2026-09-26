@@ -7,38 +7,42 @@ type Props = {
 };
 
 /**
- * A pipeline strip: numbered nodes joined by arrows. Purely typographic, so it
- * stays legible at every size and needs no image assets.
+ * The request path, written as a plain technical caption rather than a stepped
+ * widget: a quiet label, then the stages in reading order with the endpoint
+ * emphasised. No numbers, no pills.
  */
 export default function Flow({ label, nodes, tone }: Props) {
   const t = toneStyle(tone);
+  const last = nodes.length - 1;
 
   return (
-    <div className="rounded-xl border border-line bg-paper-2/40 px-4 py-3.5">
-      <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-faint">{label}</p>
+    <figure className={`border-l-2 pl-4 ${t.border}`}>
+      <figcaption className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-faint">
+        {label}
+      </figcaption>
 
-      <ol className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-2">
+      <p className="mt-2.5 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[13.5px] leading-relaxed">
         {nodes.map((node, index) => (
-          <li key={node} className="flex items-center gap-1.5">
+          <span key={node} className="inline-flex items-baseline gap-2">
             {index > 0 ? (
-              <span aria-hidden="true" className="flow-arrow mr-1.5" />
+              <span aria-hidden="true" className="text-[12px] text-line-2">
+                →
+              </span>
             ) : null}
             <span
-              className={[
-                "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[12px] font-medium",
-                index === 0
-                  ? `${t.border} ${t.wash} ${t.text}`
-                  : "border-line bg-surface text-ink-2",
-              ].join(" ")}
+              className={
+                index === last
+                  ? `font-medium ${t.text}`
+                  : index === 0
+                    ? "text-ink"
+                    : "text-muted"
+              }
             >
-              <span className="font-mono text-[10px] tabular-nums opacity-50">
-                {String(index + 1).padStart(2, "0")}
-              </span>
               {node}
             </span>
-          </li>
+          </span>
         ))}
-      </ol>
-    </div>
+      </p>
+    </figure>
   );
 }
