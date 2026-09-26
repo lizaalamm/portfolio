@@ -52,6 +52,16 @@ export default function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  /* Close the compact menu when returning to the desktop layout. */
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setOpen(false);
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
+
   /* Body scroll lock while the mobile sheet is open */
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -94,7 +104,7 @@ export default function Nav() {
             </span>
           </a>
 
-       <ul className="hidden items-center gap-6 md:flex lg:gap-7">
+          <ul className="hidden items-center gap-6 xl:flex">
             {site.nav.map((item) => {
               const isActive = active === item.href.replace("#", "");
               return (
@@ -117,7 +127,7 @@ export default function Nav() {
           <div className="flex items-center gap-2">
             <a
               href={site.contact.resume}
-              className="hidden items-center gap-2 rounded-full border border-line-2 px-3.5 py-2 text-[13px] font-medium text-ink-2 transition-colors duration-300 hover:border-accent hover:text-accent-2 lg:inline-flex"
+              className="hidden items-center gap-2 rounded-full border border-line-2 px-3.5 py-2 text-[13px] font-medium text-ink-2 transition-colors duration-300 hover:border-accent hover:text-accent-2 xl:inline-flex"
             >
               <IconDownload size={15} />
               {site.contact.resumeLabel}
@@ -131,7 +141,7 @@ export default function Nav() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="grid size-10 place-items-center rounded-full border border-line-2 text-ink-2 transition-colors hover:border-accent hover:text-accent-2 md:hidden"
+              className="grid size-10 place-items-center rounded-full border border-line-2 text-ink-2 transition-colors hover:border-accent hover:text-accent-2 xl:hidden"
               aria-label="Open menu"
               aria-expanded={open}
             >
@@ -144,7 +154,7 @@ export default function Nav() {
       {/* Mobile sheet */}
       <div
         className={[
-          "fixed inset-0 z-[70] flex flex-col bg-paper transition-[opacity,visibility] duration-300 md:hidden",
+          "fixed inset-0 z-[70] flex flex-col bg-paper transition-[opacity,visibility] duration-300 xl:hidden",
           open
             ? "visible pointer-events-auto opacity-100"
             : "invisible pointer-events-none opacity-0",

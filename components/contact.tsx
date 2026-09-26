@@ -1,11 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import { site } from "@/lib/site";
 import Reveal from "@/components/reveal";
 import {
-  IconCheck,
-  IconCopy,
   IconDownload,
   IconGithub,
   IconLinkedin,
@@ -14,18 +9,6 @@ import {
 } from "@/components/icons";
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(site.contact.email);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
-    } catch {
-      setCopied(false);
-    }
-  };
-
   return (
     <section id="contact" className="relative scroll-mt-24 overflow-hidden bg-dark text-paper">
       {/* Depth for the closing band: a teal and indigo wash over near black */}
@@ -87,16 +70,6 @@ export default function Contact() {
                   <IconMail size={16} />
                   Email me
                 </a>
-
-                <button
-                  type="button"
-                  onClick={copyEmail}
-                  className="inline-flex items-center gap-2.5 rounded-full border border-paper/20 px-4 py-3 font-mono text-[12.5px] text-paper/70 transition-colors duration-300 hover:border-paper/45 hover:text-paper"
-                  aria-live="polite"
-                >
-                  {copied ? <IconCheck size={15} /> : <IconCopy size={15} />}
-                  {copied ? "Copied" : site.contact.email}
-                </button>
 
                 <a
                   href={site.contact.resume}

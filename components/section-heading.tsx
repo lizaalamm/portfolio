@@ -26,7 +26,7 @@ export default function SectionHeading({
   const t = toneStyle(tone);
 
   return (
-    <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+    <div className="grid gap-8 border-b border-line pb-8 lg:grid-cols-12 lg:items-end">
       <div className="lg:col-span-8">
         <Reveal>
           <div className="flex items-center gap-4">

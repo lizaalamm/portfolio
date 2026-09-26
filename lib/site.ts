@@ -43,12 +43,12 @@ export const site = {
      * Wrap a word in backticks to render it in the accent serif italic.
      */
     headline: [
-      "I build full stack products",
-      "with `React` and `Next.js`,",
-      "and ship the systems behind them.",
+      "Thoughtful interfaces.",
+      "Intelligent systems.",
+      "Built `end to end`.",
     ],
     intro:
-      "I work across the whole stack: React and Next.js on the client, TypeScript and Python services behind it, PostgreSQL, Redis and vector search underneath. Two remote internships completed and two platforms shipped end to end, a clinical workspace built on multiple AI agents and an AI driven security operations centre.",
+      "I’m Liza, a full stack developer building at the intersection of product and applied AI. From React interfaces to Python services, I turn complex workflows into clear, usable products.",
     stats: [
       { value: "2", label: "Remote internships, completed" },
       { value: "2", label: "Platforms shipped end to end" },
